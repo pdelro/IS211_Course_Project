@@ -122,7 +122,7 @@ def add_post():
                 return render_template('add_post.html')
             elif request.method == 'POST':
                 try:
-                    g.db.execute("INSERT INTO entries (title, content, published) VALUES (?, ?, ?)", [request.form['add_title'], request.form['add_content'], current_date])
+                    g.db.execute("INSERT INTO entries (author, title, content, published) VALUES (?, ?, ?, ?)", (username, request.form['add_title'], request.form['add_content'], current_date))
                     g.db.commit()
                     return redirect('/dashboard')
                 except Exception as e:
