@@ -105,7 +105,7 @@ def edit_post():
             return render_template('edit_post.html')
         elif request.method == 'POST':
             try:
-                g.db.execute("INSERT INTO Entries (title, content, published) VALUES (?, ?, ?)", (request.form['title'], request.form['content']))
+                g.db.execute("INSERT INTO Entries (title, content, published) VALUES (?, ?, ?)", (request.form['title'], request.form['content'], current_date))
                 g.db.commit()
                 return redirect('/dashboard')
             except Exception as e:
@@ -116,13 +116,14 @@ def edit_post():
 
 @app.route('/post/add', methods=['GET', 'POST'])
 def add_post():
+    author = username
     current_date = datetime.datetime.today()
     if session['username'] == 'pdelro':
             if request.method == 'GET':
                 return render_template('add_post.html')
             elif request.method == 'POST':
                 try:
-                    g.db.execute("INSERT INTO entries (author, title, content, published) VALUES (?, ?, ?, ?)", (username, request.form['add_title'], request.form['add_content'], current_date))
+                    g.db.execute("INSERT INTO entries (author, title, content, published) VALUES (?, ?, ?, ?)", (author, request.form['add_title'], request.form['add_content'], current_date))
                     g.db.commit()
                     return redirect('/dashboard')
                 except Exception as e:
