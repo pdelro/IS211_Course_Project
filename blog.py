@@ -97,7 +97,7 @@ def dashboard():
     else:
         return redirect('/login')
 
-@app.route('/post/edit', methods=['GET', 'POST'])
+@app.route('/edit', methods=['GET', 'POST'])
 def edit_post():
     current_date = datetime.datetime.today()
     if session['username'] == 'pdelro':
@@ -114,7 +114,7 @@ def edit_post():
     else:
         return redirect('/login')
 
-@app.route('/post/add', methods=['GET', 'POST'])
+@app.route('/add', methods=['GET', 'POST'])
 def add_post():
     author = username
     current_date = datetime.datetime.today()
@@ -134,7 +134,7 @@ def add_post():
         return redirect('/login')
 
 
-@app.route('/post/delete/<id>', methods=['GET', 'POST'])
+@app.route('/delete/<id>', methods=['GET', 'POST'])
 def delete_post(id):
     if request.method == 'POST':
         g.db.execute('DELETE FROM Entries where id = ?', [id])

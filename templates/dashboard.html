@@ -11,10 +11,11 @@ body,h2,h3,h4,h5 {font-family: "Serif", "Garamond"}
 </style>
 <body class="w3-light-grey">
 
-<a class="topright" href="/post/add">Add Post</a><br>
+<a class="topright" href="/add">Add Post</a><br>
 
 <!-- w3-content defines a container for fixed size centered content,
-and is wrapped around the whole page content, except for the footer in this example --><div class="w3-content" style="max-width:1400px">
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
 
 <!-- Header -->
 <header class="w3-container w3-center w3-padding-32">
@@ -38,10 +39,10 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="w3-container">
       <p>{{entry.content}}</p>
         <div class="w3-bar">
-          <form action = 'post/delete/{{ entry.entry_id }}' method="post">
+          <form action = '/delete/{{ entry.entry_id }}' method="post">
               <p><button class="w3-button w3-padding-small w3-right" type = "submit" ><b>Delete Post</b></button></p>
           </form>
-          <p><a href="/post/edit"><button class="w3-button w3-padding-small w3-right"><b>Edit Post</b></button></a></p>
+          <p><a href="/edit"><button class="w3-button w3-padding-small w3-right"><b>Edit Post</b></button></a></p>
         </div>
       </div>
 
