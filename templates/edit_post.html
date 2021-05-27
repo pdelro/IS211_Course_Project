@@ -26,7 +26,6 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Edit Entry -->
 <div class="w3-col 18 s12">
-  {% for entry in entries %}
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
     <form action="post/edit" method="post">
@@ -35,10 +34,12 @@ and is wrapped around the whole page content, except for the footer in this exam
             <br>
             <select name="choose_entry">
             <option value="">Choose an entry</option>
+            {% for entry in entries %}
                 <option value="{{ entry.title }}" name="entry.title">{{ entry.title }}</option>
+            {% endfor %}
             </select>
             <br>
-            <textarea>{% for entry in entries %}{{entry.content}}{% endfor %}}
+            <textarea>{% for entry in entries %}{{entry.content}}{% endfor %}
             </textarea>
          </div>
 
@@ -49,7 +50,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 
     </div>
   </div>
-  {% endfor %}
+
   <hr>
 
 <!-- END EDIT ENTRY -->
