@@ -38,7 +38,9 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="w3-container">
       <p>{{entry.content}}</p>
         <div class="w3-bar">
-          <p><a href="/post/delete"><button class="w3-button w3-padding-small w3-right"><b>Delete Post</b></button></a></p>
+          <form action = 'post/delete/{{ entry.entry_id }}' method="post">
+              <p><button class="w3-button w3-padding-small w3-right" type = "submit" ><b>Delete Post</b></button></p>
+          </form>
           <p><a href="/post/edit"><button class="w3-button w3-padding-small w3-right"><b>Edit Post</b></button></a></p>
         </div>
       </div>
